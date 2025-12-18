@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arabic Math Editor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        chtml: {
+          // هذا يمنع تقطيع الحروف العربية (حل مشكلة "اج" -> "جا")
+          mtextInheritFont: true
+        },
+        startup: {
+          typeset: false 
+        }
+      };
+    </script>
+    
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Cairo', sans-serif;
+      }
+
+      /* 1. الحاوية الأساسية: نتركها LTR (لمنع تداخل العناصر) لكن نحاذيها لليمين */
+      mjx-container {
+        direction: ltr !important; 
+        text-align: right !important; 
+        font-family: 'Amiri', serif !important;
+      }
+      
+      /* 2. النصوص العربية داخل المعادلة: نجبرها على الاتجاه العربي */
+      mjx-mtext {
+        direction: rtl !important; 
+        font-family: 'Amiri', serif !important;
+      }
+      
+      /* 3. تطبيق الاتجاه RTL على العناصر الرياضية (يحل مشكلة ترتيب الحدود) */
+      mjx-math {
+          direction: rtl !important; 
+          display: inline-block !important;
+      }
+
+      /* 4. إضافة مسافات للمتغيرات والعمليات (للتنسيق الجمالي) */
+      mjx-mi { /* المتغيرات مثل س، ص */
+          padding-left: 0.3em !important; 
+          padding-right: 0.3em !important;
+          margin-right: 0.2em !important;
+          margin-left: 0.2em !important;
+          font-family: 'Amiri', serif !important;
+      }
+      
+      mjx-mo { /* العمليات مثل +، = */
+          padding-left: 0.6em !important;
+          padding-right: 0.6em !important;
+          margin-right: 0.4em !important;
+          margin-left: 0.4em !important;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
