@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# Arabic Mathematical Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A highly specialized, web-based rich-text editor for writing complex mathematical equations in Arabic. Built from the ground up with React, TypeScript, and the Slate.js framework, this project tackles the unique challenges of rendering right-to-left (RTL) mathematical notations.
 
-Currently, two official plugins are available:
+[![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Slate.js](https://img.shields.io/badge/Slate.js-2B313B?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyOCAwTDI1NiA2NFYxOTJMMTI4IDI1NkwwIDE5MlY2NFoiIGZpbGw9IiMyQjMxM0IiLz48cGF0aCBkPSJNNjQgMzJMMTkyIDgwVjE3Nkw2NCAxMjhaIiBmaWxsPSIjRkZGIi8+PC9zdmc+)](https://www.slatejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[View the Live Demo &raquo;](https://arabic-math-editor.vercel.app/)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎯 Project Overview
 
-## Expanding the ESLint configuration
+Standard text editors often fail to properly support the complex, nested, and RTL nature of Arabic mathematical formulas. This project provides a robust solution by creating a custom, extensible editor that allows users to intuitively write and see complex equations rendered beautifully in real-time.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Key Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Custom Mathematical Components:** Implements custom, editable components for a wide range of mathematical notations.
+- **Nested Editable Zones:** Each part of a formula (e.g., numerator, denominator, base, power) is its own editable field for a seamless user experience.
+- **Smart Input:** Automatically creates paired brackets `()`, `[]`, `{}` to speed up writing.
+- **RTL-First Design:** Built with Right-to-Left layout as a primary consideration.
+- **Extensible Architecture:** The use of Slate.js allows for easy addition of new mathematical symbols and structures in the future.
+- **Zero Dependencies on Math Libraries:** All rendering logic is custom-built, demonstrating a deep understanding of the DOM and CSS.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Implemented Mathematical Structures
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Fractions:** `(كسر)`
+- **Superscripts & Subscripts:** `(أس و أساس)`
+- **Summations (Sigma):** `(رمز التجميع)`
+- **Integrals:** `(رمز التكامل)`
+- **N-th Roots:** `(الجذر النوني)`
+- **Limits:** `(النهايات)`
+- **Matrices:** `(المصفوفات)`
+- **Paired Brackets:** `(الأقواس المتمددة)`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Screenshots
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+_(It's highly recommended to add screenshots of your application here to showcase the UI)_
+
+| Editor Interface |
+| ---------------- |
+| !Desktop Preview |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** React
+- **Language:** TypeScript
+- **Editor Core:** Slate.js, Slate-React
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+
+---
+
+## 🚀 How to Run Locally
+
+To get a local copy up and running, follow these simple steps.
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/nouran-Omar/Arabic-mathematical-editor.git
+    cd Arabic-mathematical-editor
+    ```
+
+2.  **Install NPM packages:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    Open http://localhost:5173 (or the port specified in your terminal) to view it in your browser.
+
+---
+
+## 🧠 Core Concepts & Implementation
+
+The editor leverages Slate.js's custom element and rendering capabilities.
+
+- **`withMath` Plugin:** A custom Slate plugin is used to define which elements should be treated as `inline` to allow them to sit correctly within a line of text.
+- **`renderElement` Function:** This is the heart of the visual rendering. A large `switch` statement maps each custom element type (e.g., `'fraction'`, `'summation'`) to its corresponding React component (`<FractionElement />`, `<SummationElement />`).
+- **Custom Components:** Each mathematical structure is a dedicated React component that uses Flexbox and relative/absolute positioning to arrange its children (the editable parts) correctly.
+- **`onKeyDown` Handler:** Intercepts keyboard events to implement smart features, like wrapping a selection in paired brackets.
+
+This project is an excellent example of solving a complex UI problem with a deep understanding of a framework's architecture.
